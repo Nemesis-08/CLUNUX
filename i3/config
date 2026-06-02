@@ -1,0 +1,151 @@
+### Variables ──────────────────────────────────────────────────────────────────
+exec --no-startup-id "systemctl --user import-environment QT_QPA_PLATFORMTHEME QT_STYLE_OVERRIDE"
+# Floating terminal
+exec_always --no-startup-id alacritty --class side_alacritty
+for_window [instance="side_alacritty"] move scratchpad
+for_window [instance="side_alacritty"] floating enable, resize set 50 ppt 80 ppt, move position 25 ppt 0 ppt
+bindsym Mod1+t [instance="side_alacritty"] scratchpad show
+
+set $mod        Mod4
+set $term       alacritty
+set $menu       rofi -show drun -show-icons
+set $browser    firefox
+set $files      nautilus
+set $lock       i3lock -f -c 000000
+set $logout     wlogout -b 1
+
+set $left   h
+set $right  l
+set $up     k
+set $down   j
+
+### Appearance ─────────────────────────────────────────────────────────────────
+default_border          pixel 3
+default_floating_border pixel 3
+smart_borders           on
+title_align             center
+
+gaps inner 3
+gaps outer 2
+
+# Colors
+client.focused          #f93d0e #f93d0e #ffffff #f93d0e #f93d0e
+client.unfocused        #6c008a #000000 #888888 #6c008a #6c008a
+client.focused_inactive #6c008a #090504 #888888 #6c008a #6c008a
+client.urgent           #9b0000 #9b0000 #ffffff #9b0000 #9b0000
+client.background       #000000
+
+# Font
+font pango:monospace 10
+
+### Autostart ──────────────────────────────────────────────────────────────────
+exec --no-startup-id autotiling
+exec --no-startup-id nm-applet --indicator
+exec --no-startup-id blueberry-tray
+exec --no-startup-id picom -b --config ~/.config/picom/picom.conf
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+# Restore wallpaper using feh
+exec_always --no-startup-id feh --bg-fill ~/Pictures/walls/* || xsetroot -solid "#000000"
+
+### Key Bindings ───────────────────────────────────────────────────────────────
+
+# Applications
+bindsym $mod+t          exec $term
+bindsym $mod+space      exec $menu
+bindsym $mod+b          exec $browser
+bindsym $mod+e          exec $files
+
+# Session
+bindsym $mod+p          exec $logout
+bindsym ctrl+alt+Delete exec i3-msg exit
+bindsym $mod+shift+c    reload
+
+# Window management
+bindsym $mod+q          kill
+bindsym $mod+h          focus left
+bindsym $mod+a          focus left
+bindsym $mod+Left       focus left
+bindsym $mod+l          focus right
+bindsym $mod+d          focus right
+bindsym $mod+Right      focus right
+bindsym $mod+k          focus up
+bindsym $mod+Up         focus up
+bindsym $mod+j          focus down
+bindsym $mod+Down       focus down
+
+bindsym $mod+ctrl+h     move left
+bindsym $mod+ctrl+a     move left
+bindsym $mod+ctrl+Left  move left
+bindsym $mod+ctrl+l     move right
+bindsym $mod+ctrl+d     move right
+bindsym $mod+ctrl+Right move right
+bindsym $mod+ctrl+k     move up
+bindsym $mod+ctrl+Up    move up
+bindsym $mod+ctrl+j     move down
+bindsym $mod+ctrl+Down  move down
+
+# Workspaces
+bindsym $mod+1  workspace number 1
+bindsym $mod+2  workspace number 2
+bindsym $mod+3  workspace number 3
+bindsym $mod+4  workspace number 4
+bindsym $mod+5  workspace number 5
+bindsym $mod+6  workspace number 6
+bindsym $mod+7  workspace number 7
+bindsym $mod+8  workspace number 8
+bindsym $mod+9  workspace number 9
+
+bindsym $mod+Tab    workspace back_and_forth
+bindsym --whole-window $mod+button5   workspace next
+bindsym --whole-window $mod+button4   workspace prev
+
+bindsym $mod+ctrl+1  move container to workspace number 1
+bindsym $mod+ctrl+2  move container to workspace number 2
+bindsym $mod+ctrl+3  move container to workspace number 3
+bindsym $mod+ctrl+4  move container to workspace number 4
+bindsym $mod+ctrl+5  move container to workspace number 5
+bindsym $mod+ctrl+6  move container to workspace number 6
+bindsym $mod+ctrl+7  move container to workspace number 7
+bindsym $mod+ctrl+8  move container to workspace number 8
+bindsym $mod+ctrl+9  move container to workspace number 9
+
+# Layout
+bindsym $mod+Return         floating toggle
+floating_modifier $mod
+bindsym $mod+f              fullscreen toggle
+bindsym $mod+w              layout tabbed
+bindsym $mod+v              split v
+bindsym $mod+shift+b        split h
+bindsym $mod+c              move position center
+
+# Resize
+bindsym $mod+minus          resize shrink width  10px
+bindsym $mod+equal          resize grow   width  10px
+bindsym $mod+shift+minus    resize shrink height 10px
+bindsym $mod+shift+equal    resize grow   height 10px
+
+mode "resize" {
+    bindsym $left   resize shrink width  10px
+    bindsym $right  resize grow   width  10px
+    bindsym $up     resize shrink height 10px
+    bindsym $down   resize grow   height 10px
+    bindsym Return  mode "default"
+    bindsym Escape  mode "default"
+}
+bindsym $mod+r  mode "resize"
+
+# Media/Brightness
+bindsym XF86AudioRaiseVolume  exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume  exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute         exec wpctl set-mute   @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioMicMute      exec wpctl set-mute   @DEFAULT_AUDIO_SOURCE@ toggle
+bindsym XF86AudioNext         exec playerctl next
+bindsym XF86AudioPrev         exec playerctl previous
+bindsym XF86AudioPlay         exec playerctl play-pause
+bindsym XF86AudioPause        exec playerctl play-pause
+bindsym XF86MonBrightnessUp   exec brightnessctl set 5%+
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+# Screenshots
+bindsym ctrl+shift+1    exec flameshot gui
