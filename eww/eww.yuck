@@ -1,0 +1,38 @@
+(defvar show_pass false)
+(defvar pending_cmd "")
+(defvar pass_val "")
+
+(defwindow menu
+  :geometry (geometry :x "0%"
+                       :y "0%"
+                       :width "950px"
+                       :height "600px"
+                       :anchor "center")
+  :stacking "fg"
+  :windowtype "toolbar"
+  :wm-ignore true
+  :focusable true
+  (menu_content))
+
+(defwidget menu_content []
+  (box :orientation "v" :space-evenly false :class "outer-box"
+    (box :class "main-box" :orientation "h" :space-evenly true
+      (box :class "fetch-side" :orientation "v" :space-evenly false
+        (label :class "fetch-text" :text fetch_output :wrap true :justify "left"))
+      (box :class "session-side" :orientation "v" :space-evenly true
+        (button :class "btn btn-rsession" :onclick "eww update pending_cmd='systemctl restart lightdm' && eww update show_pass=true" "󰑐Rsession")
+        (button :class "btn btn-reboot" :onclick "eww update pending_cmd='reboot' && eww update show_pass=true" "󰑓Reboot")
+        (button :class "btn btn-poweroff" :onclick "eww update pending_cmd='poweroff' && eww update show_pass=true" "󰐥Poweroff")))
+    
+    (revealer :transition "slidedown" :reveal show_pass :duration "300ms"
+      (box :class "pass-box" :orientation "h" :space-evenly false
+        (label :class "pass-label" :text "󰌾 Password: ")
+        (input :class "pass-input" 
+               :password true 
+               :onchange "eww update pass_val={}"
+               :onaccept "echo {} | sudo -S ${pending_cmd} && eww close menu")
+        (button :class "pass-btn" 
+                :onclick "echo '${pass_val}' | sudo -S ${pending_cmd} && eww close menu" 
+                "Confirm")))))
+
+(defpoll fetch_output :interval "1h" "fastfetch --pipe")
