@@ -1,4 +1,8 @@
 ### Variables ──────────────────────────────────────────────────────────────────
+exec --no-startup-id xset s off
+exec --no-startup-id xset -dpms
+exec --no-startup-id xset s noblank #no-power-saver
+
 exec --no-startup-id "systemctl --user import-environment QT_QPA_PLATFORMTHEME QT_STYLE_OVERRIDE"
 # Floating terminal
 exec_always --no-startup-id alacritty --class side_alacritty
@@ -44,7 +48,8 @@ exec --no-startup-id nm-applet --indicator
 exec --no-startup-id blueberry-tray
 exec --no-startup-id picom -b --config ~/.config/picom/picom.conf
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-
+exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l
+exec --no-startup-id eww daemon
 # Restore wallpaper using feh
 exec_always --no-startup-id feh --bg-fill ~/Pictures/walls/* || xsetroot -solid "#000000"
 
@@ -55,11 +60,14 @@ bindsym $mod+t          exec $term
 bindsym $mod+space      exec $menu
 bindsym $mod+b          exec $browser
 bindsym $mod+e          exec $files
+bindsym Menu            exec eww open menu --toggle
+bindsym $mod+m          exec eww open menu --toggle
 
 # Session
 bindsym $mod+p          exec $logout
 bindsym ctrl+alt+Delete exec i3-msg exit
 bindsym $mod+shift+c    reload
+bindsym $mod+Shift+l exec --no-startup-id betterlockscreen -l
 
 # Window management
 bindsym $mod+q          kill
