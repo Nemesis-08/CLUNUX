@@ -21,11 +21,21 @@ A CachyOS rice of CLU from Tron.
     <td>Font</td>
     <td><a href="https://github.com/papuSpartan/ttf-encom">Encom</a></td>
   </tr>
+   <td>Launcher & session</td>
+    <td>Rofi</td>
   
 </table>
 Screenshots:
 <br>
-<img width="443" height="539" alt="image" src="https://github.com/user-attachments/assets/1acd9e97-c14a-4d80-ba52-cc7e7a1293de" />
+<!--Session-->
+<img width="319" height="310" alt="image" src="https://github.com/user-attachments/assets/c68b753a-131a-4eaf-b005-744918df4fb3" />
+<!--Launcher-->
+<img width="416" height="533" alt="image" src="https://github.com/user-attachments/assets/65817d18-e08d-48e5-a957-3128fc9a5fe5" />
+<!--Confirm-->
+<img width="259" height="166" alt="image" src="https://github.com/user-attachments/assets/bbcb110e-cb0a-46fc-b6b1-c65886e39890" />
+
+<!--DESKTOP SS-->
+
 <img width="1365" height="767" alt="2026-05-26_15-42_1" src="https://github.com/user-attachments/assets/94d423e1-6f93-4be1-b5e5-d2b9e3132b3e" />
 <img width="1365" height="767" alt="2026-05-27_15-51" src="https://github.com/user-attachments/assets/3162ba00-7dde-4d46-a089-98c3b03c4820" />
 <img width="1365" height="767" alt="image" src="https://github.com/user-attachments/assets/4e4c0450-f4e0-4fa4-8c7a-7eb472369a08" />
