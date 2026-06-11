@@ -1,0 +1,14 @@
+set format_title=%F
+set altformat_title=%F
+set format_current=%F
+set altformat_current=%F
+set format_playlist=%F
+set altformat_playlist=%F
+set format_trackwin=%F
+set altformat_trackwin=%F
+set color_separator=202
+set color_statusline_progress_bg=202
+set color_titleline_bg=202
+set color_win_cur_sel_bg=202
+set color_win_sel_bg=202
+set color_win_title_bg=202
