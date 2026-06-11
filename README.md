@@ -28,7 +28,7 @@ A CachyOS rice of CLU from Tron.
 Screenshots:
 <br>
 <!--Session-->
-<img width="319" height="310" alt="image" src="https://github.com/user-attachments/assets/c68b753a-131a-4eaf-b005-744918df4fb3" />
+<img width="309" height="304" alt="image" src="https://github.com/user-attachments/assets/e0be0c1e-9c62-4c68-aa23-15ab07b9871c" />
 <!--Launcher-->
 <img width="416" height="533" alt="image" src="https://github.com/user-attachments/assets/65817d18-e08d-48e5-a957-3128fc9a5fe5" />
 <!--Confirm-->
