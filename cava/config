@@ -246,11 +246,8 @@
 # a terminal that can change color definitions such as Gnome-terminal or rxvt.
 # default is to keep current terminal color
 ; background = default
-foreground = '#f93d0e'
+foreground = '#080403'
 
-# SDL and sdl_glsl only support hex code colors, these are the default:
-; background = '#111111'
-; foreground = '#33ffff'
 
 
 # Gradient mode, only hex defined colors are supported,
