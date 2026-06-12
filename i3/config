@@ -16,7 +16,7 @@ set $menu       rofi -show drun -show-icons
 set $browser    firefox
 set $files      nautilus
 set $lock       i3lock -f -c 000000
-set $logout     wlogout -b 1
+set $logout     ~/.config/rofi/scripts/powermenu.sh
 
 set $left   h
 set $right  l
@@ -49,7 +49,6 @@ exec --no-startup-id blueberry-tray
 exec --no-startup-id picom -b --config ~/.config/picom/picom.conf
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l
-exec --no-startup-id eww daemon
 # Restore wallpaper using feh
 exec_always --no-startup-id feh --bg-fill ~/Pictures/walls/* || xsetroot -solid "#000000"
 
@@ -57,14 +56,15 @@ exec_always --no-startup-id feh --bg-fill ~/Pictures/walls/* || xsetroot -solid 
 
 # Applications
 bindsym $mod+t          exec $term
-bindsym $mod+space      exec $menu
+#bindsym $mod+space      exec $menu
 bindsym $mod+b          exec $browser
 bindsym $mod+e          exec $files
-bindsym Menu            exec eww open menu --toggle
-bindsym $mod+m          exec eww open menu --toggle
+# Toggle Rofi
+bindsym $mod+space exec --no-startup-id pkill -x rofi || rofi -normal-window -kb-cancel 'Escape' -show drun
+for_window [class="Rofi"] floating enable, border none, move position center
 
 # Session
-bindsym $mod+p          exec $logout
+bindsym $mod+p          exec --no-startup-id pkill -x rofi || $logout
 bindsym ctrl+alt+Delete exec i3-msg exit
 bindsym $mod+shift+c    reload
 bindsym $mod+Shift+l exec --no-startup-id betterlockscreen -l
