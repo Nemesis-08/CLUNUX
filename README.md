@@ -1,6 +1,6 @@
 # Tron-CLU-Theme
-A CachyOS rice of CLU from Tron.
-<table>
+
+<table style="font-family:Times New Roman">
   <tr>
     <td>Shell</td>
     <td>Fish</td>
@@ -23,12 +23,10 @@ A CachyOS rice of CLU from Tron.
   </tr>
    <td>Launcher & session</td>
     <td>Rofi</td>
-  
+
 </table>
-Screenshots:
+<h2 style="font-family:Times New Roman">Screenshots:</h2>
 <br>
-<!--Confirm-->
-<img width="259" height="166" alt="image" src="https://github.com/user-attachments/assets/bbcb110e-cb0a-46fc-b6b1-c65886e39890" />
 <!--Session-->
 <img width="309" height="304" alt="image" src="https://github.com/user-attachments/assets/e0be0c1e-9c62-4c68-aa23-15ab07b9871c" />
 <!--Launcher-->
@@ -38,6 +36,13 @@ Screenshots:
 
 <img width="1365" height="767" alt="2026-05-26_15-42_1" src="https://github.com/user-attachments/assets/94d423e1-6f93-4be1-b5e5-d2b9e3132b3e" />
 <img width="1365" height="767" alt="2026-05-27_15-51" src="https://github.com/user-attachments/assets/3162ba00-7dde-4d46-a089-98c3b03c4820" />
+<h3 style="font-family:Times New Roman">Floating terminal</h3>
+<table style="font-family:Times New Roman">
+<tr>
+<td>Toggle</td>
+<td>Alt+T</td>
+</tr>
+</table>
 <img width="1365" height="767" alt="image" src="https://github.com/user-attachments/assets/4e4c0450-f4e0-4fa4-8c7a-7eb472369a08" />
 
 
