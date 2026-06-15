@@ -35,7 +35,8 @@
 <!--DESKTOP SS-->
 
 <img width="1365" height="767" alt="2026-05-26_15-42_1" src="https://github.com/user-attachments/assets/94d423e1-6f93-4be1-b5e5-d2b9e3132b3e" />
-<img width="1365" height="767" alt="2026-05-27_15-51" src="https://github.com/user-attachments/assets/3162ba00-7dde-4d46-a089-98c3b03c4820" />
+<img width="1365" height="767" alt="image" src="https://github.com/user-attachments/assets/b23efc76-bc78-41ea-b3e6-dd457293b4ce" />
+
 <h3 style="font-family:Times New Roman">Floating terminal</h3>
 <table style="font-family:Times New Roman">
 <tr>
