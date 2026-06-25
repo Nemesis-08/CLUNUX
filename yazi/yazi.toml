@@ -1,4 +1,6 @@
-[manager]
+#:schema https://yazi-rs.github.io/schemas/yazi.json
+
+[mgr]
 ratio          = [ 1, 4, 3 ]
 sort_by        = "alphabetical"
 sort_sensitive = false
@@ -17,36 +19,23 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
 edit = [
-	{ run = 'micro "$@"', block = true, desc = "Edit" },
+	{ run = "micro %s", block = true, desc = "Edit" },
 ]
 play = [
-	{ run = 'mpv "$@"', orphan = true, desc = "Play" },
+	{ run = "mpv %s", orphan = true, desc = "Play" },
 ]
 open = [
-	{ run = 'xdg-open "$@"', desc = "Open" },
+	{ run = "xdg-open %s1", desc = "Open" },
 ]
 
 [open]
 rules = [
-	{ name = "*/", mime = "inode/directory", use = [ "edit", "open" ] },
-	{ name = "*.{txt,md,toml,ini,conf,sh,py,js,rs,c,cpp,h}", mime = "text/*", use = [ "edit", "open" ] },
-	{ name = "*.{mp3,wav,m4a,flac}", mime = "audio/*", use = [ "play", "open" ] },
-	{ name = "*.{mp4,mkv,avi,mov}", mime = "video/*", use = [ "play", "open" ] },
+	{ url = "*/", use = [ "edit", "open" ] },
+	{ url = "*.{txt,md,toml,ini,conf,sh,py,js,rs,c,cpp,h}", mime = "text/*", use = [ "edit", "open" ] },
+	{ url = "*.{mp3,wav,m4a,flac}", mime = "audio/*", use = [ "play", "open" ] },
+	{ url = "*.{mp4,mkv,avi,mov}", mime = "video/*", use = [ "play", "open" ] },
 	{ mime = "image/*", use = "open" },
 	{ mime = "application/pdf", use = "open" },
+	# Fallback so unmatched files still have an opener
+	{ url = "*", use = "open" },
 ]
-
-[plugin]
-preload = [
-	{ name = "*", run = "mime" },
-]
-
-[input]
-# cursor_blink = false
-
-[confirm]
-# trash_title  = "Trash {n} selected file{s}?"
-# delete_title = "Delete {n} selected file{s}?"
-
-[log]
-enabled = false

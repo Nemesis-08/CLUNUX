@@ -1,12 +1,8 @@
-[manager]
+#:schema https://yazi-rs.github.io/schemas/theme.json
+
+# : Manager {{{
+[mgr]
 cwd = { fg = "#f93d0e" }
-
-# Hovered item
-hovered         = { fg = "#000000", bg = "#f93d0e", bold = true }
-preview_hovered = { underline = true }
-
-# Selected items
-selected        = { fg = "#000000", bg = "#6c008a", bold = true }
 
 # Find
 find_keyword  = { fg = "#000000", bg = "#f93d0e", italic = true }
@@ -16,42 +12,70 @@ find_position = { fg = "#ffffff", bg = "#6c008a", bold = true }
 marker_selected = { fg = "#6c008a", bg = "#6c008a" }
 marker_copied   = { fg = "#f93d0e", bg = "#f93d0e" }
 marker_cut      = { fg = "#9b0000", bg = "#9b0000" }
+marker_marked   = { fg = "#ffffff", bg = "#ffffff" }
+marker_symbol   = "│"
 
-# Tab
-tab_active   = { fg = "#000000", bg = "#f93d0e" }
-tab_inactive = { fg = "#ffffff", bg = "#000000" }
+# Count badges (shown next to the marker)
+count_copied   = { fg = "#000000", bg = "#f93d0e", bold = true }
+count_cut      = { fg = "#ffffff", bg = "#9b0000", bold = true }
+count_selected = { fg = "#000000", bg = "#6c008a", bold = true }
 
-# Border
+# Border between panes
 border_symbol = "│"
 border_style  = { fg = "#f93d0e" }
+# : }}}
 
-# Input
-input_border   = { fg = "#f93d0e" }
-input_selected = { fg = "#000000", bg = "#f93d0e" }
+# : Indicator of the hovered file (replaces old hovered/preview_hovered) {{{
+[indicator]
+parent  = { reversed = true }
+current = { fg = "#000000", bg = "#f93d0e", bold = true }
+preview = { underline = true }
+padding = { open = "", close = "" }
+# : }}}
 
-# Status bar
+# : Tabs {{{
+[tabs]
+active   = { fg = "#000000", bg = "#f93d0e", bold = true }
+inactive = { fg = "#ffffff", bg = "#000000" }
+
+# Flat separators — no rounded pill caps
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+# : }}}
+
+# : Mode badge (this is what was showing as "blue" before — it now lives
+#   in its own [mode] section instead of under [status]) {{{
+[mode]
+normal_main = { fg = "#000000", bg = "#f93d0e", bold = true }
+normal_alt  = { fg = "#f93d0e", bg = "#000000" }
+
+select_main = { fg = "#000000", bg = "#6c008a", bold = true }
+select_alt  = { fg = "#6c008a", bg = "#000000" }
+
+unset_main = { fg = "#000000", bg = "#9b0000", bold = true }
+unset_alt  = { fg = "#9b0000", bg = "#000000" }
+# : }}}
+
+# : Status bar {{{
 [status]
-separator_open  = ""
-separator_close = ""
-separator_style = { fg = "#000000", bg = "#000000" }
+# Flat separators — no rounded pill caps
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
 
-# Mode
-mode_normal = { fg = "#000000", bg = "#f93d0e", bold = true }
-mode_select = { fg = "#000000", bg = "#6c008a", bold = true }
-mode_unset  = { fg = "#000000", bg = "#9b0000", bold = true }
+# Permissions
+perm_sep   = { fg = "#ffffff" }
+perm_type  = { fg = "#f93d0e" }
+perm_read  = { fg = "#f93d0e" }
+perm_write = { fg = "#9b0000" }
+perm_exec  = { fg = "#6c008a" }
 
 # Progress
 progress_label  = { fg = "#ffffff", bold = true }
 progress_normal = { fg = "#f93d0e", bg = "#000000" }
 progress_error  = { fg = "#9b0000", bg = "#000000" }
+# : }}}
 
-# Permissions
-permissions_t = { fg = "#f93d0e" }
-permissions_r = { fg = "#f93d0e" }
-permissions_w = { fg = "#9b0000" }
-permissions_x = { fg = "#6c008a" }
-permissions_s = { fg = "#ffffff" }
-
+# : File-specific styles {{{
 [filetype]
 rules = [
 	# Images
@@ -68,3 +92,4 @@ rules = [
 	{ mime = "application/x-7z-compressed", fg = "#9b0000" },
 	{ mime = "application/x-rar", fg = "#9b0000" },
 ]
+# : }}}
