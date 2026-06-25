@@ -1,0 +1,4 @@
+/* Sharp corners for web content and internal pages */
+* {
+    border-radius: 0px !important;
+}

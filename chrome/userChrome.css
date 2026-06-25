@@ -1,0 +1,19 @@
+/* Sharp corners for Firefox UI */
+* {
+    border-radius: 0px !important;
+}
+
+#urlbar-background, 
+#searchbar, 
+.tab-background, 
+.tab-stack,
+#main-window,
+.panel-arrowcontent,
+.panel-subview-body,
+.panel-viewstack,
+menupopup,
+menuitem,
+.button,
+button {
+    border-radius: 0px !important;
+}
