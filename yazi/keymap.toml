@@ -1,0 +1,9 @@
+[[manager.prepend_keymap]]
+on   = [ "C-d" ]
+run  = "shell 'dragon-drop -x -i -T \"$@\"' --confirm"
+desc = "Drag and drop selected files"
+
+[[manager.prepend_keymap]]
+on   = [ "T" ]
+run  = "plugin toggle-pane preview"
+desc = "Toggle preview pane"

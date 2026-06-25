@@ -1,0 +1,70 @@
+[manager]
+cwd = { fg = "#f93d0e" }
+
+# Hovered item
+hovered         = { fg = "#000000", bg = "#f93d0e", bold = true }
+preview_hovered = { underline = true }
+
+# Selected items
+selected        = { fg = "#000000", bg = "#6c008a", bold = true }
+
+# Find
+find_keyword  = { fg = "#000000", bg = "#f93d0e", italic = true }
+find_position = { fg = "#ffffff", bg = "#6c008a", bold = true }
+
+# Markers
+marker_selected = { fg = "#6c008a", bg = "#6c008a" }
+marker_copied   = { fg = "#f93d0e", bg = "#f93d0e" }
+marker_cut      = { fg = "#9b0000", bg = "#9b0000" }
+
+# Tab
+tab_active   = { fg = "#000000", bg = "#f93d0e" }
+tab_inactive = { fg = "#ffffff", bg = "#000000" }
+
+# Border
+border_symbol = "│"
+border_style  = { fg = "#f93d0e" }
+
+# Input
+input_border   = { fg = "#f93d0e" }
+input_selected = { fg = "#000000", bg = "#f93d0e" }
+
+# Status bar
+[status]
+separator_open  = ""
+separator_close = ""
+separator_style = { fg = "#000000", bg = "#000000" }
+
+# Mode
+mode_normal = { fg = "#000000", bg = "#f93d0e", bold = true }
+mode_select = { fg = "#000000", bg = "#6c008a", bold = true }
+mode_unset  = { fg = "#000000", bg = "#9b0000", bold = true }
+
+# Progress
+progress_label  = { fg = "#ffffff", bold = true }
+progress_normal = { fg = "#f93d0e", bg = "#000000" }
+progress_error  = { fg = "#9b0000", bg = "#000000" }
+
+# Permissions
+permissions_t = { fg = "#f93d0e" }
+permissions_r = { fg = "#f93d0e" }
+permissions_w = { fg = "#9b0000" }
+permissions_x = { fg = "#6c008a" }
+permissions_s = { fg = "#ffffff" }
+
+[filetype]
+rules = [
+	# Images
+	{ mime = "image/*", fg = "#f93d0e" },
+	# Video
+	{ mime = "video/*", fg = "#6c008a" },
+	# Audio
+	{ mime = "audio/*", fg = "#6c008a" },
+	# Archives
+	{ mime = "application/zip", fg = "#9b0000" },
+	{ mime = "application/x-tar", fg = "#9b0000" },
+	{ mime = "application/x-bzip2", fg = "#9b0000" },
+	{ mime = "application/x-gzip", fg = "#9b0000" },
+	{ mime = "application/x-7z-compressed", fg = "#9b0000" },
+	{ mime = "application/x-rar", fg = "#9b0000" },
+]

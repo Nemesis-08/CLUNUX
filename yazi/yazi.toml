@@ -1,0 +1,52 @@
+[manager]
+ratio          = [ 1, 4, 3 ]
+sort_by        = "alphabetical"
+sort_sensitive = false
+sort_reverse   = false
+sort_dir_first = true
+show_hidden    = true
+show_symlink   = true
+
+[preview]
+tab_size        = 2
+max_width       = 1000
+max_height      = 1000
+cache_dir       = ""
+ueberzug_scale  = 1
+ueberzug_offset = [ 0, 0, 0, 0 ]
+
+[opener]
+edit = [
+	{ run = 'micro "$@"', block = true, desc = "Edit" },
+]
+play = [
+	{ run = 'mpv "$@"', orphan = true, desc = "Play" },
+]
+open = [
+	{ run = 'xdg-open "$@"', desc = "Open" },
+]
+
+[open]
+rules = [
+	{ name = "*/", mime = "inode/directory", use = [ "edit", "open" ] },
+	{ name = "*.{txt,md,toml,ini,conf,sh,py,js,rs,c,cpp,h}", mime = "text/*", use = [ "edit", "open" ] },
+	{ name = "*.{mp3,wav,m4a,flac}", mime = "audio/*", use = [ "play", "open" ] },
+	{ name = "*.{mp4,mkv,avi,mov}", mime = "video/*", use = [ "play", "open" ] },
+	{ mime = "image/*", use = "open" },
+	{ mime = "application/pdf", use = "open" },
+]
+
+[plugin]
+preload = [
+	{ name = "*", run = "mime" },
+]
+
+[input]
+# cursor_blink = false
+
+[confirm]
+# trash_title  = "Trash {n} selected file{s}?"
+# delete_title = "Delete {n} selected file{s}?"
+
+[log]
+enabled = false
