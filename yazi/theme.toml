@@ -1,62 +1,69 @@
 #:schema https://yazi-rs.github.io/schemas/theme.json
 
+# Palette (matches alacritty.toml):
+#   light orange (alacritty's text color) = #ed8a42  -- general/ambient UI
+#   solid orange                          = #f93d0e  -- bottom status bar + anything that needs to pop
+#   rust orange (close, darker)           = #c1440e  -- danger/cut/tertiary
+#   white / black                         -- contrast + base
+
 # : Manager {{{
 [mgr]
-cwd = { fg = "#f93d0e" }
+cwd = { fg = "#ed8a42" }
 
 # Find
-find_keyword  = { fg = "#000000", bg = "#f93d0e", italic = true }
-find_position = { fg = "#ffffff", bg = "#6c008a", bold = true }
+find_keyword  = { fg = "#000000", bg = "#f93d0e", bold = true, italic = true }
+find_position = { fg = "#ffffff", bg = "#f93d0e", bold = true }
 
 # Markers
-marker_selected = { fg = "#6c008a", bg = "#6c008a" }
-marker_copied   = { fg = "#f93d0e", bg = "#f93d0e" }
-marker_cut      = { fg = "#9b0000", bg = "#9b0000" }
+marker_selected = { fg = "#f93d0e", bg = "#f93d0e" }
+marker_copied   = { fg = "#ed8a42", bg = "#ed8a42" }
+marker_cut      = { fg = "#c1440e", bg = "#c1440e" }
 marker_marked   = { fg = "#ffffff", bg = "#ffffff" }
 marker_symbol   = "│"
 
 # Count badges (shown next to the marker)
-count_copied   = { fg = "#000000", bg = "#f93d0e", bold = true }
-count_cut      = { fg = "#ffffff", bg = "#9b0000", bold = true }
-count_selected = { fg = "#000000", bg = "#6c008a", bold = true }
+count_copied   = { fg = "#000000", bg = "#ed8a42", bold = true }
+count_cut      = { fg = "#ffffff", bg = "#c1440e", bold = true }
+count_selected = { fg = "#000000", bg = "#f93d0e", bold = true }
 
 # Border between panes
 border_symbol = "│"
-border_style  = { fg = "#f93d0e" }
+border_style  = { fg = "#ed8a42" }
 # : }}}
 
-# : Indicator of the hovered file (replaces old hovered/preview_hovered) {{{
+# : Indicator of the hovered file {{{
 [indicator]
 parent  = { reversed = true }
-current = { fg = "#000000", bg = "#f93d0e", bold = true }
+current = { fg = "#000000", bg = "#ed8a42", bold = true }
 preview = { underline = true }
 padding = { open = "", close = "" }
 # : }}}
 
-# : Tabs {{{
+# : Tabs (header, not the bottom bar — general theme) {{{
 [tabs]
-active   = { fg = "#000000", bg = "#f93d0e", bold = true }
-inactive = { fg = "#ffffff", bg = "#000000" }
+active   = { fg = "#000000", bg = "#ed8a42", bold = true }
+inactive = { fg = "#ed8a42", bg = "#000000" }
 
 # Flat separators — no rounded pill caps
 sep_inner = { open = "", close = "" }
 sep_outer = { open = "", close = "" }
 # : }}}
 
-# : Mode badge (this is what was showing as "blue" before — it now lives
-#   in its own [mode] section instead of under [status]) {{{
+# : Mode badge — lives in the bottom status bar, so this is where solid
+#   #f93d0e is the anchor color. Other modes use the close warm tones so
+#   they're still readable as distinct from "normal". {{{
 [mode]
 normal_main = { fg = "#000000", bg = "#f93d0e", bold = true }
 normal_alt  = { fg = "#f93d0e", bg = "#000000" }
 
-select_main = { fg = "#000000", bg = "#6c008a", bold = true }
-select_alt  = { fg = "#6c008a", bg = "#000000" }
+select_main = { fg = "#000000", bg = "#ed8a42", bold = true }
+select_alt  = { fg = "#ed8a42", bg = "#000000" }
 
-unset_main = { fg = "#000000", bg = "#9b0000", bold = true }
-unset_alt  = { fg = "#9b0000", bg = "#000000" }
+unset_main = { fg = "#ffffff", bg = "#c1440e", bold = true }
+unset_alt  = { fg = "#c1440e", bg = "#000000" }
 # : }}}
 
-# : Status bar {{{
+# : Status bar — the "bottom bar", solid #f93d0e is the headline color here {{{
 [status]
 # Flat separators — no rounded pill caps
 sep_left  = { open = "", close = "" }
@@ -65,31 +72,31 @@ sep_right = { open = "", close = "" }
 # Permissions
 perm_sep   = { fg = "#ffffff" }
 perm_type  = { fg = "#f93d0e" }
-perm_read  = { fg = "#f93d0e" }
-perm_write = { fg = "#9b0000" }
-perm_exec  = { fg = "#6c008a" }
+perm_read  = { fg = "#ffffff" }
+perm_write = { fg = "#ed8a42" }
+perm_exec  = { fg = "#c1440e" }
 
 # Progress
 progress_label  = { fg = "#ffffff", bold = true }
 progress_normal = { fg = "#f93d0e", bg = "#000000" }
-progress_error  = { fg = "#9b0000", bg = "#000000" }
+progress_error  = { fg = "#c1440e", bg = "#000000" }
 # : }}}
 
 # : File-specific styles {{{
 [filetype]
 rules = [
 	# Images
-	{ mime = "image/*", fg = "#f93d0e" },
+	{ mime = "image/*", fg = "#ed8a42" },
 	# Video
-	{ mime = "video/*", fg = "#6c008a" },
+	{ mime = "video/*", fg = "#f93d0e" },
 	# Audio
-	{ mime = "audio/*", fg = "#6c008a" },
+	{ mime = "audio/*", fg = "#ffffff" },
 	# Archives
-	{ mime = "application/zip", fg = "#9b0000" },
-	{ mime = "application/x-tar", fg = "#9b0000" },
-	{ mime = "application/x-bzip2", fg = "#9b0000" },
-	{ mime = "application/x-gzip", fg = "#9b0000" },
-	{ mime = "application/x-7z-compressed", fg = "#9b0000" },
-	{ mime = "application/x-rar", fg = "#9b0000" },
+	{ mime = "application/zip", fg = "#c1440e" },
+	{ mime = "application/x-tar", fg = "#c1440e" },
+	{ mime = "application/x-bzip2", fg = "#c1440e" },
+	{ mime = "application/x-gzip", fg = "#c1440e" },
+	{ mime = "application/x-7z-compressed", fg = "#c1440e" },
+	{ mime = "application/x-rar", fg = "#c1440e" },
 ]
 # : }}}
