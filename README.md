@@ -1,8 +1,8 @@
 # Tron-CLU-Theme
-<pre>
+
 This is my personal CLU inspired theme.
 I have changed nvim motion configs so change it back. Everthing is commented.
-</pre>
+
 > [!CAUTION]
 > **These commands mess with `/root/`:**
 
