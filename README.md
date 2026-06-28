@@ -36,25 +36,7 @@ sudo ln -sfn "$HOME/.local/state/nvim" /root/.local/state/nvim
 sudo ln -sfn "$HOME/.cache/nvim" /root/.cache/nvim
 ```
 
-<table style="font-family:Times New Roman">
-  <tr>
-    <td>Shell</td>
-    <td>Fish</td>
-  </tr>
-    <tr>
-    <td>Bar</td>
-    <td>Polybar</td>
-  </tr>
-    <tr>
-    <td>Compositor</td>
-    <td>Picom</td>
-  </tr>
-  <tr>
-    <td>Font</td>
-    <td><a href="https://github.com/papuSpartan/ttf-encom">Encom</a>, MesloLGL Nerd Font</td>
-  </tr>
 
-</table>
 <h2 style="font-family:Times New Roman">Screenshots:</h2>
 <br>
 <h3>Rofi:</h3>
@@ -77,4 +59,23 @@ sudo ln -sfn "$HOME/.cache/nvim" /root/.cache/nvim
 
 <img width="1365" height="767" alt="image" src="https://github.com/user-attachments/assets/1c515fb6-f7a1-48a0-9a9d-74c37f591de5" />
 
+<table style="font-family:Times New Roman">
+  <tr>
+    <td>Shell</td>
+    <td>Fish</td>
+  </tr>
+    <tr>
+    <td>Bar</td>
+    <td>Polybar</td>
+  </tr>
+    <tr>
+    <td>Compositor</td>
+    <td>Picom</td>
+  </tr>
+  <tr>
+    <td>Font</td>
+    <td><a href="https://github.com/papuSpartan/ttf-encom">Encom</a>, MesloLGL Nerd Font</td>
+  </tr>
+
+</table>
 
