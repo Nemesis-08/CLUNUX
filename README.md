@@ -3,27 +3,37 @@
 This is my personal CLU inspired theme.
 I have changed nvim motion configs so change it back. Everthing is commented.
 </pre>
-<pre>
-  How to add yazi theme to root :
-  1. sudo YAZI_CONFIG_HOME="$HOME/.config/yazi" -E yazi                             <--Point YAZI_CONFIG_HOME to your main configuration directory
-  2. sudo mkdir -p /root/.config/yazi                                               <--Create the root folder
-  3. sudo ln -s "$HOME/.config/yazi/theme.toml" /root/.config/yazi/theme.toml       <--Symlink it to your local config
-</pre>
+<h3>CAUTION! these mess with /root/:</h3>
+
 ```
+# 1. Point YAZI_CONFIG_HOME to your main configuration directory
 sudo YAZI_CONFIG_HOME="$HOME/.config/yazi" -E yazi
-sudo mkdir -p /root/.config/yazisudo
-ln -s "$HOME/.config/yazi/theme.toml" /root/.config/yazi/theme.toml
+#   ↑
+# add a "env" here if it does not work
+                     
+# 2. Create the root folder
+sudo mkdir -p /root/.config/yazi                                                 
+
+# 3. Symlink it to your local config
+sudo ln -s "$HOME/.config/yazi/theme.toml" /root/.config/yazi/theme.toml
 ```
-<pre>
-  How to add nvim theme and plugins to root :
-  1. sudo mkdir -p /root/.config                                                    
-     sudo mkdir -p /root/.local/share                                               <--Make sure these exist
-     sudo mkdir -p /root/.local/state /root/.cache                                  
-  2. sudo ln -sfn "$HOME/.config/nvim" /root/.config/nvim                           <--Symlink to local file
-  3. sudo ln -sfn "$HOME/.local/share/nvim" /root/.local/share/nvim                 <--Symlink plugins and data
-  4. sudo ln -sfn "$HOME/.local/state/nvim" /root/.local/state/nvim                 
-     sudo ln -sfn "$HOME/.cache/nvim" /root/.cache/nvim                             <--Symlink plugin history, treesitter parsers, and UI state load
-</pre>
+
+```
+# 1. Make sure these exist
+sudo mkdir -p /root/.config                                                     
+sudo mkdir -p /root/.local/share                                                 
+sudo mkdir -p /root/.local/state /root/.cache                                   
+
+# 2. Symlink to local file
+sudo ln -sfn "$HOME/.config/nvim" /root/.config/nvim                             
+
+# 3. Symlink plugins and data
+sudo ln -sfn "$HOME/.local/share/nvim" /root/.local/share/nvim                   
+
+# 4. Symlink plugin history, treesitter parsers, and UI state load
+sudo ln -sfn "$HOME/.local/state/nvim" /root/.local/state/nvim                 
+sudo ln -sfn "$HOME/.cache/nvim" /root/.cache/nvim
+```
 
 <table style="font-family:Times New Roman">
   <tr>
