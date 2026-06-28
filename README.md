@@ -3,6 +3,12 @@
 This is my personal CLU inspired theme.
 I have changed nvim motion configs so change it back. Everthing is commented.
 </pre>
+<pre>
+  How to add yazi theme to root :
+  1. sudo YAZI_CONFIG_HOME="$HOME/.config/yazi" -E yazi    <--Point YAZI_CONFIG_HOME to your main configuration directory
+  2. sudo mkdir -p /root/.config/yazi                      <--Create the root folder
+  3. sudo ln -s "$HOME/.config/yazi/theme.toml" /root/.config/yazi/theme.toml       <--Symlink it to your local config
+</pre>
 <table style="font-family:Times New Roman">
   <tr>
     <td>Shell</td>
