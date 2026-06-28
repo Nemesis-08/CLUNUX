@@ -3,7 +3,8 @@
 This is my personal CLU inspired theme.
 I have changed nvim motion configs so change it back. Everthing is commented.
 </pre>
-<h3>CAUTION! these mess with /root/:</h3>
+> [!CAUTION]
+> **These commands mess with `/root/`:**
 
 ```
 # 1. Point YAZI_CONFIG_HOME to your main configuration directory
