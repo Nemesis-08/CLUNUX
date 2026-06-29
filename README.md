@@ -76,6 +76,9 @@ sudo ln -sfn "$HOME/.cache/nvim" /root/.cache/nvim
     <td>Font</td>
     <td><a href="https://github.com/papuSpartan/ttf-encom">Encom</a>, MesloLGL Nerd Font</td>
   </tr>
-
+  <tr>
+  <td>Cursor</td>
+  <td><a href="https://www.gnome-look.org/p/2302110">Moga Neon</a></td>
+  </tr>
 </table>
 
