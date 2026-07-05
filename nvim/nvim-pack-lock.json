@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "duskhaven.nvim": {
+      "rev": "e6ea57dbedee95b9d80290e56741b4a168a2885c",
+      "src": "https://github.com/kbraggins/duskhaven.nvim"
+    },
     "lualine.nvim": {
       "rev": "221ce6b2d999187044529f49da6554a92f740a96",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
