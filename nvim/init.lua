@@ -1,22 +1,22 @@
--- 1. System Settings & UI Layout
+--System Settings & UI Layout
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
 vim.opt.background = "dark"
 
--- Tabs & Indentation
+--Tabs & Indentation
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
--- Search & Clipboard
+--Search & Clipboard
 vim.opt.clipboard = "unnamedplus"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 
--- 2. Keymaps & Motion Swaps (h <-> n, l <-> m, k<->j)
+--Keymaps & Motion Swaps (h <-> n, l <-> m, k<->j)
 
 local motion_swaps = {
 	{ lhs = "h", rhs = "n", desc = "Repeat search forward" },
@@ -31,11 +31,11 @@ for _, map in ipairs(motion_swaps) do
 	vim.keymap.set({ "n", "v", "o" }, map.lhs, map.rhs, { desc = map.desc })
 end
 
--- Visual mode search-repeat overrides
+--Visual mode search-repeat overrides
 vim.keymap.set("v", "M", "n", { desc = "Extend selection to next match" })
 vim.keymap.set("v", "N", "N", { desc = "Extend selection to previous match" })
 
--- 3. Plugin Management (vim.pack >= Neovim 0.12)
+--Plugin Management (vim.pack >= Neovim 0.12)
 if not vim.fn.has("nvim-0.12") then
 	vim.notify("init.lua: vim.pack requires Neovim >= 0.12", vim.log.levels.WARN)
 	return
@@ -47,7 +47,7 @@ vim.pack.add({
 	"https://github.com/kbraggins/duskhaven.nvim",
 })
 
--- 4. Colorscheme (duskhaven.nvim)
+--Colorscheme (duskhaven.nvim)
 vim.cmd.colorscheme("duskhaven")
 
 -- Make the background transparent so the terminal's own background shows
@@ -80,10 +80,9 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	callback = set_transparent_bg,
 })
 
--- 5. Statusline (Lualine) Configuration
+--Statusline (Lualine) Configuration
 require("nvim-web-devicons").setup({})
 
--- Original bottom-bar palette, kept from before duskhaven was added.
 local palette = {
 	black = "#000000",
 	white = "#ffffff",
